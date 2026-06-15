@@ -33,7 +33,7 @@ A RESTful API for task management with JWT authentication, email verification, p
 
 1. Clone the repository:
 ```bash
-   git clone https://github.com/твій_username/task-manager-api.git
+   git clone https://github.com/rskoryk/task-manager-api.git
    cd task-manager-api
 ```
 
