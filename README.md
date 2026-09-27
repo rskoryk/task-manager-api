@@ -86,13 +86,14 @@ A RESTful API for task management with JWT authentication, email verification, p
 | DELETE | /api/users/me | Delete current user |
 
 ### Admin
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | /api/admin/users | Get all users (paginated) |
-| GET | /api/admin/users/{id} | Get user by ID |
-| GET | /api/admin/users/{id}/tasks | Get user's tasks |
-| PATCH | /api/admin/users/{id}/toggle | Toggle user enabled/disabled |
-| DELETE | /api/admin/users/{id} | Delete user |
+| Method | Endpoint                      | Description               |
+|--------|-------------------------------|---------------------------|
+| GET    | /api/admin/users              | Get all users (paginated) |
+| GET    | /api/admin/users/{id}         | Get user by ID            |
+| GET    | /api/admin/users/{id}/tasks   | Get user's tasks          |
+| PUT    | /api/admin/users/{id}/block   | Block user                |
+| PUT    | /api/admin/users/{id}/unblock | Unblock user              |
+| DELETE | /api/admin/users/{id}         | Delete user               |
 
 ## Running Tests
 

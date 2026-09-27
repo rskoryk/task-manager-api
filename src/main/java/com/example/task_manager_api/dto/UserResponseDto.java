@@ -9,5 +9,6 @@ public class UserResponseDto {
     private String username;
     private String email;
     private Role role;
-    private boolean enabled;
+    private boolean emailVerified;
+    private boolean blocked;
 }

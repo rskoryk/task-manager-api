@@ -5,11 +5,12 @@ import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.DisabledException;
+import org.springframework.security.authentication.LockedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import java.nio.file.AccessDeniedException;
+import org.springframework.security.access.AccessDeniedException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -58,5 +59,11 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleDisabled(DisabledException disabledException) {
         return ResponseEntity.status(HttpStatus.FORBIDDEN)
                 .body("Account is not activated. Please check your email. \n" + disabledException.getMessage());
+    }
+
+    @ExceptionHandler(LockedException.class)
+    public ResponseEntity<String> handleLocked(LockedException e){
+        return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                .body("Account is blocked by administrator.");
     }
 }

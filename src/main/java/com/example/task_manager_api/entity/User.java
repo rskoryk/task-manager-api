@@ -23,7 +23,8 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    private boolean enabled = false;
+    private boolean emailVerified = false;
+    private boolean blocked = false;
     private String verificationToken;
     private LocalDateTime verificationTokenExpiration;
 

@@ -44,7 +44,6 @@ public class AuthServiceImpl implements AuthService {
         user.setEmail(request.getEmail());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setRole(Role.USER);
-        user.setEnabled(false);
         user.setVerificationToken(verificationToken);
         user.setVerificationTokenExpiration(LocalDateTime.now().plusHours(24));
 
@@ -78,7 +77,7 @@ public class AuthServiceImpl implements AuthService {
             throw new TokenExpiredException("Verification token expired");
         }
 
-        user.setEnabled(true);
+        user.setEmailVerified(true);
         user.setVerificationToken(null);
         user.setVerificationTokenExpiration(null);
 

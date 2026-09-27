@@ -11,7 +11,6 @@ import com.example.task_manager_api.service.impl.AuthServiceImpl;
 import com.example.task_manager_api.service.impl.EmailService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -26,7 +25,6 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.never;
 
-@SpringBootTest
 public class AuthServiceImplTest {
 
     private UserRepository userRepository;
@@ -151,7 +149,7 @@ public class AuthServiceImplTest {
 
         authService.verify(token);
 
-        assertTrue(user.isEnabled());
+        assertTrue(user.isEmailVerified());
         assertNull(user.getVerificationToken());
         verify(userRepository, times(1)).save(any(User.class));
     }

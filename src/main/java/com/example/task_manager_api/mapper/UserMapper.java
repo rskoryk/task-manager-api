@@ -10,7 +10,8 @@ public class UserMapper {
         dto.setUsername(user.getUsername());
         dto.setEmail(user.getEmail());
         dto.setRole(user.getRole());
-        dto.setEnabled(user.isEnabled());
+        dto.setEmailVerified(user.isEmailVerified());
+        dto.setBlocked(user.isBlocked());
         return dto;
     }
 
