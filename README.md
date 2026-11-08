@@ -1,5 +1,7 @@
 # Task Manager API
 
+[![CI](https://github.com/rskoryk/task-manager-api/actions/workflows/ci.yml/badge.svg)](https://github.com/rskoryk/task-manager-api/actions/workflows/ci.yml)
+
 A RESTful API for task management with JWT authentication, email verification, pagination, sorting, and role-based access control.
 
 ## Tech Stack
@@ -27,7 +29,8 @@ A RESTful API for task management with JWT authentication, email verification, p
 
 ### Prerequisites
 
-- Docker + Docker Compose
+- Docker + Docker Compose (to run the app)
+- Java 21 (to run tests)
 
 ### Run with Docker
 
@@ -96,9 +99,18 @@ A RESTful API for task management with JWT authentication, email verification, p
 | DELETE | /api/admin/users/{id}         | Delete user               |
 
 ## Running Tests
+Requires Java 21. Set a test `JWT_SECRET` (any Base64 string of at least 32 bytes) in the terminal, then run the tests.
 
+**PowerShell (Windows):**
+```powershell
+$env:JWT_SECRET="c2NyZWVuZXhhbXBsZWZpbmlzaGNvcHBlcnN0ZWVsbmluZXNoYWxsb3draWxscGVhY2U="
+./mvnw test
+```
+
+**bash (Linux / macOS):**
 ```bash
-  ./mvnw test
+export JWT_SECRET=c2NyZWVuZXhhbXBsZWZpbmlzaGNvcHBlcnN0ZWVsbmluZXNoYWxsb3draWxscGVhY2U=
+./mvnw test
 ```
 
 ## Environment Variables
