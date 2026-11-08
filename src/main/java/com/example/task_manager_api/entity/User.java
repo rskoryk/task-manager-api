@@ -1,6 +1,7 @@
 package com.example.task_manager_api.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -13,6 +14,7 @@ import java.util.List;
         @UniqueConstraint(columnNames = {"email"})
 })
 @Data
+@Builder
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -23,7 +25,9 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    @Builder.Default
     private boolean emailVerified = false;
+    @Builder.Default
     private boolean blocked = false;
     private String verificationToken;
     private LocalDateTime verificationTokenExpiration;
